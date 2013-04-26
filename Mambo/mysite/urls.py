@@ -7,4 +7,4 @@ from views import *
 
 # USE (nombreWeb, nombreMethod)
 urlpatterns = patterns('', ('^hello/$', hello), ('^clock/$', clock),
-                       ('^clockTpl/$', clockPlantilla),)
+                       ('^clockTpl/$', clockPlantilla), ('login', login))

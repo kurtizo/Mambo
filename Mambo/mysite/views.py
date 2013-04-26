@@ -1,6 +1,8 @@
 # -*- coding: cp1252 -*-
 from django.template.loader import get_template
 from django.template import Context
+from django.template import RequestContext
+
 from django.http import HttpResponse
 import urllib2
 import datetime
@@ -22,4 +24,18 @@ def clockPlantilla(request):
 def obtenerCodigo(url):
 	urllib2.urlopen(url)
 	
-	
+def login(request):
+        username = request.POST['username']
+        password = request.POST['password']
+        print username
+        print password
+        user = auth.authenticate(username=username, password=password)
+        if user is not None and user.is_active:
+            # Correct password, and the user is marked "active"
+            auth.login(request, user)
+            # Redirect to a success page.
+            return HttpResponseRedirect("/account/loggedin/")
+        else:
+        # Show an error page
+            return HttpResponseRedirect("/account/invalid/")
+        return t.render(Context({'person_name': 'batman'}))
