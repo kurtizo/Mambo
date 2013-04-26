@@ -34,8 +34,8 @@ def login(request):
             # Correct password, and the user is marked "active"
             auth.login(request, user)
             # Redirect to a success page.
-            return HttpResponseRedirect("/account/loggedin/")
+            return HttpResponseRedirect('<h1>Page was found</h1>')
         else:
         # Show an error page
-            return HttpResponseRedirect("/account/invalid/")
+            return HttpResponseRedirect('<h1>batman</h1>')
         return t.render(Context({'person_name': 'batman'}))
