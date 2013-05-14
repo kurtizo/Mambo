@@ -1,9 +1,9 @@
 # -*- coding: cp1252 -*-
 from django.template.loader import get_template
-from django.template import Context
-from django.template import RequestContext
-
+from django.template import Context, RequestContext
+from django.contrib.auth import authenticate, login
 from django.http import HttpResponse
+from django.shortcuts import render_to_response
 import urllib2
 import datetime
 
@@ -15,27 +15,18 @@ def clock(request):
 	html = "it is now %s." % now
 	return HttpResponse(html)
 
-def clockPlantilla(request):
-	now = datetime.datetime.now()
-	t = get_template('clockTPL.html')
-	html = t.render(Context({'person_name': 'batman'}))
-	return HttpResponse(html)
+def loginform(request):
+	return render_to_response('login_form.html', RequestContext(request))
 
 def obtenerCodigo(url):
 	urllib2.urlopen(url)
 	
-def login(request):
-        username = request.POST['username']
-        password = request.POST['password']
-        print username
-        print password
-        user = auth.authenticate(username=username, password=password)
-        if user is not None and user.is_active:
-            # Correct password, and the user is marked "active"
-            auth.login(request, user)
-            # Redirect to a success page.
-            return HttpResponseRedirect('<h1>Page was found</h1>')
+def loginMade(request):
+	context = RequestContext(request)
+        if request.method == 'POST':
+            username = request.POST.get('username')
+            password = request.POST.get('password')
         else:
-        # Show an error page
-            return HttpResponseRedirect('<h1>batman</h1>')
-        return t.render(Context({'person_name': 'batman'}))
+            username = request.GET.get('username')
+            password = request.GET.get('password')
+        return render_to_response("login_activate.html",  context)

@@ -6,5 +6,8 @@ from views import *
 # admin.autodiscover()
 
 # USE (nombreWeb, nombreMethod)
-urlpatterns = patterns('', ('^hello/$', hello), ('^clock/$', clock),
-                       ('^clockTpl/$', clockPlantilla), ('.', login))
+urlpatterns = patterns	('', 
+						('^hello/$', hello), 
+						('^clock/$', clock),
+						('^login/$', loginform), 
+						('^actions/$', loginMade), 						)
