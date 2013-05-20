@@ -10,4 +10,8 @@ urlpatterns = patterns	('',
 						('^hello/$', hello), 
 						('^clock/$', clock),
 						('^login/$', loginform), 
-						('^actions/$', loginMade), 						)
+						('^actions/$', loginMade),
+						('^register/$', registerform),
+						('^search/$', searchform),
+						('^contact/$', contact),
+                         )
