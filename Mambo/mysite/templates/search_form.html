@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+{% block content %}		
+		<form action="/actions/" method="post" class="well form-inline">
+			<label for="id_username">Search:</label> <input id="username" type="text" name="search" class="input-small" />
+		</form>
+{% endblock %}		
+<p>Dear {{ person_name }}</p>

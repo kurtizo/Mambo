@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% block content %}
+		<div class="well">
+			<div class="heading">
+				<h3 class="form-heading">Unete a nuestro club.</h3>
+			</div>
+			<form action="/register/" method="post" class="form-horizontal"><br/>
+				<div class="clearfix">
+					<label id="optionsCheckboxes">List of options</label>
+					<div class="input">
+							{{ formRegister.genero }}
+					</div>
+				</div>
+			<!-- nombre input-->
+				<div class="control-group">
+					<label class="control-label" for="id_nombre"> Nombre : </label>
+					<div class="controls">
+						{{ formRegister.nombre }}
+					</div>
+				</div>
+			<!-- apellidos input-->
+				<div class="control-group">
+					<div class="control-group">
+						<label class="control-label" for="id_apellidos"> Apellidos : </label>
+						<div class="controls">
+							{{ formRegister.apellidos }}
+						</div>
+					</div>
+				</div>
+			<!-- tipo documento input-->
+				<div class="control-group">
+					<div class="control-group">
+						<label class="control-label" for="id_tipoDoc"> Tipo de documento : </label>
+						<div class="controls">
+							{{ formRegister.tipoDoc }}
+						</div>
+					</div>
+				</div>
+			<!-- documento input-->
+				<div class="control-group">
+					<div class="control-group">
+						<label class="control-label" for="id_numeroDoc"> Documento : </label>
+						<div class="controls">
+							{{ formRegister.numeroDoc }}
+						</div>
+					</div>
+				</div>
+			<!-- nombre usuario input-->
+				<div class="control-group">
+					<div class="control-group">
+						<label class="control-label" for="id_numeroDoc"> Nombre de usuario : </label>
+						<div class="controls">
+							{{ formRegister.user }}
+						</div>
+					</div>
+				</div>
+			<!-- password input-->
+				<div class="control-group">
+					<div class="control-group">
+						<label class="control-label" for="id_numeroDoc"> Password : </label>
+						<div class="controls">
+							{{ formRegister.password }}
+						</div>
+					</div>
+				</div>
+			<!-- email input-->
+				<div class="control-group">
+					<div class="control-group">
+						<label class="control-label" for="id_numeroDoc"> Email de usuario : </label>
+						<div class="controls">
+							{{ formRegister.email }}
+						</div>
+					</div>
+				</div>				
+			</form>
+		</div>		
+					
+{% endblock %}		
+<p>Dear {{ person_name }}</p>
