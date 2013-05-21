@@ -2,13 +2,18 @@
 {% block content %}
 		<div class="well">
 			<div class="heading">
-				<h3 class="form-heading">Unete a nuestro club.</h3>
+				<h3 class="">Unete a nuestro club.</h3>
 			</div>
-			<form action="/register/" method="post" class="form-horizontal"><br/>
-				<div class="clearfix">
-					<label id="optionsCheckboxes">List of options</label>
-					<div class="input">
-							{{ formRegister.genero }}
+			<hr>			
+			<form action="/register/" method="post" class="form-horizontal">
+				<div class="control-group">
+					<label class="control-label"> Genero : </label>
+					<div class="controls inline">
+						{% for genero in formRegister.genero %}
+						<div class="radio inline">
+							{{ genero }}
+						</div>
+						{% endfor %}
 					</div>
 				</div>
 			<!-- nombre input-->

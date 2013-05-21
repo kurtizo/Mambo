@@ -1,3 +1,4 @@
+<!DOCTYPE HTML>
 <html lang="es-ES">
 	{% load staticfiles %}
 	<head>
@@ -7,8 +8,11 @@
 		<meta name="keywords" content="Spanish lessons Vancouver, Spanish Classes Vancouver, Spanish for travellers, Learn Spanish in Vancouver, Spanish courses Vancouver, spanish programs, intensive Spanish, learn to speak spanish, Spanish language lessons, Spanish language schools"/>
         <meta name="description" content="Spanish lessons in Vancouver. Native teachers school where you can improve your spanish skills. Hipancouver wants to be your spanish school in Vancouver"/>
 		<link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" media="screen">
-    <style type="text/css">
- 
+		<link href="{% static 'css/bootstrap-responsive.css' %}" rel="stylesheet">  
+  <style type="text/css">
+	  body{
+		background-color: #D1DFF8;
+      }
 	  .hero-unit {
         margin: 20px 0;
 		background-color: #049cdb;
@@ -21,6 +25,9 @@
 		text-align: right;
 	  }
 
+	  .well {
+		  text-align: left;
+      }
     </style>
 	</head>
 	<body>
@@ -33,8 +40,8 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				  </a>
-				  <div class="nav-collapse">
-					<ul class="nav">
+				  <div class="nav-collapse" id="main-menu">
+					<ul class="nav" id="main-menu-left">
 					  <li class="active"><a href="#">Inicio</a></li>
 					  <li><a href="/search/">Buscador</a></li>
 					  <li><a href="/register/">Registro</a></li>

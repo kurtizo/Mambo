@@ -19,12 +19,12 @@ class LoginForm(forms.Form):
         cc_myself = forms.BooleanField(required=False)
 
 class RegisterForm(forms.Form):
-        genero = forms.MultipleChoiceField(required=False, widget=RadioSelect(), choices=GENERE_CHOICES,)
+        genero = forms.MultipleChoiceField(required=False, widget=forms.RadioSelect(attrs={'class':'input-xlarge'}), choices=GENERE_CHOICES,)
         nombre = forms.CharField(widget=forms.TextInput(attrs={'class':'input-xlarge','placeholder':'Nombre'}))
         apellidos = forms.CharField(widget=forms.TextInput(attrs={'class':'input-xlarge','placeholder':'Apellidos'}))
-        tipoDoc = forms.ChoiceField(choices=TIPDOC_CHOICES)
+        tipoDoc = forms.ChoiceField(widget=forms.Select(attrs={'class':'input-xlarge'}), choices=TIPDOC_CHOICES)
         numeroDoc = forms.CharField(widget=forms.TextInput(attrs={'class':'input-xlarge','placeholder':'Numero documento'}))
         user = forms.CharField(widget=forms.TextInput(attrs={'class':'input-xlarge','placeholder':'Usuario'}))
-        password = forms.CharField(widget=PasswordInput(), max_length=100)
+        password = forms.CharField(widget=forms.PasswordInput(attrs={'class':'input-xlarge','placeholder':'Password'}), max_length=100)
         email = forms.EmailField(widget=forms.TextInput(attrs={'class':'input-xlarge','placeholder':'Email'}))
         
