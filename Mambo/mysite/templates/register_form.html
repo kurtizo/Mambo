@@ -1,82 +1,57 @@
-{% extends 'base.html' %}
+﻿{% extends 'base.html' %}
 {% block content %}
 		<div class="well">
 			<div class="heading">
 				<h3 class="">Unete a nuestro club.</h3>
 			</div>
 			<hr>			
-			<form action="/register/" method="post" class="form-horizontal">
-				<div class="control-group">
-					<label class="control-label"> Genero : </label>
-					<div class="controls inline">
-						{% for genero in formRegister.genero %}
-						<div class="radio inline">
-							{{ genero }}
-						</div>
-						{% endfor %}
+			<form action="/register/" method="post" class="form-horizontal">{% csrf_token %}
+			
+				{% for field in formRegister %}
+				
+					<div class="control-group {%if field.errors %} error {% endif %}">
+					
+							<div class="control-label">
+								{{ field.label_tag }}  
+							</div>
+				
+				<!-- Seleccion del genero -->
+						{%if field.name = 'genero' %}
+							<div class="controls inline">
+								{%for genero in field %}
+								<div class="radio inline">
+									{{ genero }}
+								</div>
+								{% endfor %}
+									<span class="help-inline">
+										{% for error in field.errors %}
+											{{ error }} 
+										{% endfor %}
+									</span>
+							</div>
+				<!-- Resto de campos -->
+						{%else%}
+								<div class="controls">
+									{{ field }}
+									<span class="help-inline">
+										{% for error in field.errors %}
+											{{ error }} 
+										{% endfor %}
+									</span>
+								</div>
+						{%endif%}
+						
 					</div>
-				</div>
-			<!-- nombre input-->
-				<div class="control-group">
-					<label class="control-label" for="id_nombre"> Nombre : </label>
+					
+				{% endfor %}
+				<!-- Botón para el registro -->
+				 <div class="control-group">
 					<div class="controls">
-						{{ formRegister.nombre }}
+						<input class="btn btn-danger" type="reset" value=" Limpiar ">
+						<input type="submit" value="Registrate" class="btn btn-success" />				
 					</div>
 				</div>
-			<!-- apellidos input-->
-				<div class="control-group">
-					<div class="control-group">
-						<label class="control-label" for="id_apellidos"> Apellidos : </label>
-						<div class="controls">
-							{{ formRegister.apellidos }}
-						</div>
-					</div>
-				</div>
-			<!-- tipo documento input-->
-				<div class="control-group">
-					<div class="control-group">
-						<label class="control-label" for="id_tipoDoc"> Tipo de documento : </label>
-						<div class="controls">
-							{{ formRegister.tipoDoc }}
-						</div>
-					</div>
-				</div>
-			<!-- documento input-->
-				<div class="control-group">
-					<div class="control-group">
-						<label class="control-label" for="id_numeroDoc"> Documento : </label>
-						<div class="controls">
-							{{ formRegister.numeroDoc }}
-						</div>
-					</div>
-				</div>
-			<!-- nombre usuario input-->
-				<div class="control-group">
-					<div class="control-group">
-						<label class="control-label" for="id_numeroDoc"> Nombre de usuario : </label>
-						<div class="controls">
-							{{ formRegister.user }}
-						</div>
-					</div>
-				</div>
-			<!-- password input-->
-				<div class="control-group">
-					<div class="control-group">
-						<label class="control-label" for="id_numeroDoc"> Password : </label>
-						<div class="controls">
-							{{ formRegister.password }}
-						</div>
-					</div>
-				</div>
-			<!-- email input-->
-				<div class="control-group">
-					<div class="control-group">
-						<label class="control-label" for="id_numeroDoc"> Email de usuario : </label>
-						<div class="controls">
-							{{ formRegister.email }}
-						</div>
-					</div>
-				</div>				
+				
 			</form>
 		</div>		
 					

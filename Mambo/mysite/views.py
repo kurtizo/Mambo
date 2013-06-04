@@ -35,7 +35,26 @@ def loginMade(request):
 def registerform(request):
         print "Vamos al formRegister"
         if request.method == 'POST':
-                formRegister = RegisterForm(request.POST)
+                formRegister    = RegisterForm(request.POST)
+                print formRegister.is_bound
+                if formRegister.is_valid():
+                        genero          = formRegister.cleaned_data['genero']
+                        nombre          = formRegister.cleaned_data['nombre']
+                        apellidos       = formRegister.cleaned_data['apellidos']
+                        tipoDoc         = formRegister.cleaned_data['tipo_documento']
+                        numeroDoc       = formRegister.cleaned_data['numero_documento']
+                        user            = formRegister.cleaned_data['nombre_usuario']
+                        password1       = formRegister.cleaned_data['password']
+                        password2       = formRegister.cleaned_data['repassword']
+                        email           = formRegister.cleaned_data['email']
+                        if not password2:
+                                raise formRegister.ValidationError("You must confirm your password")
+                        if password1 != password2:
+                                raise formRegister.ValidationError("Your passwords do not match")
+                        print "WELL DONE"
+                else:
+                        print "CASA"
+                        
         else:
                 formRegister = RegisterForm()
         return render_to_response('register_form.html',  {'formRegister': formRegister,} ,RequestContext(request))

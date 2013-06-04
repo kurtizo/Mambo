@@ -1,7 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}		
-		<form action="/actions/" method="post" class="well form-inline">
-			<label for="id_username">Search:</label> <input id="username" type="text" name="search" class="input-small" />
+	<div class="well">
+		<form action="/actions/" method="post" class="form-search">
+			<input type="text" class="input-medium search-query">
+			<button type="submit" class="btn">Search</button>			
 		</form>
+	</div>
 {% endblock %}		
 <p>Dear {{ person_name }}</p>
