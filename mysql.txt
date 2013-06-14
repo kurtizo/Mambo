@@ -1,0 +1,17 @@
+- Búsqueda de una base de datos
+http://www.db4free.net/ - de momento valdrá
+
+- Instalamos mysql en python
+http://mysql-python.sourceforge.net/
+
+- Sincronizamos con django
+python manage.py syncdb
+
+guía - http://cumbredigital.wordpress.com/2009/12/09/django-utilizando-mysql-5-en-ubuntu/
+
+modelando los usuarios 
+
+http://procrastinatingdev.com/django/using-configurable-user-models-in-django-1-5/
+
+en settings.py - AUTH_USER_MODEL = 'account.models.UserProfile' para el modelado
+en models

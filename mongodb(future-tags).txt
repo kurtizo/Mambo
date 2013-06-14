@@ -1,0 +1,14 @@
+Primer paso
+
+Activamos la base de datos
+C:/mongodb/bin/mongod.exe
+
+Abrimos el terminal de mongo
+C:/mongodb/bin/mongo.exe
+
+
+Commands
+
+db - Nombre de la base de datos
+show dbs - muestra las bases de datos existentes
+use mydb - Crea una nueva base de datos

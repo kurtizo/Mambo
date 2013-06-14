@@ -1,0 +1,13 @@
+http://www.cibernatural.com/tutorial-de-django-iii
+
+desde prueba/mysite -> python manage.py runserver
+
+database - http://db4free.net/d4f_apply.php
+user: kurtizo
+pass: mambodbpass
+
+PLANTILLAS (Templates)
+
+	-	Agregar la carpeta de la que cuelga nuestro proyecto al path.
+	-	set DJANGO_SETTINGS_MODULE=mysite.settings - mysite = proyecto , settings = settings autogenerados
+
