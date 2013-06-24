@@ -15,7 +15,10 @@ TIPDOC_CHOICES = (
 #Errores por defector para los formularios
 my_default_errors = {
     'required': 'Este campo es requerido',
-    'invalid': 'Introduzca un valor correcto'
+    'invalid': 'Introduzca un valor correcto',
+    'passConf': 'No existe el password',
+    'passMatch': 'No coinciden los passwords',
+    'regisUser': 'Usuario ya registrado',
 }
         
 class LoginForm(forms.Form):
@@ -26,9 +29,8 @@ class LoginForm(forms.Form):
 
 class RegisterForm(forms.Form):
         #------ Genero -----------#
-        genero = forms.ChoiceField (            required=True, widget=forms.RadioSelect(attrs={'class':'input-xlarge'}),
-                                                choices=GENERE_CHOICES, label = "Genero : ",
-                                                error_messages=my_default_errors)
+        genero = forms.ChoiceField (            widget=forms.RadioSelect(attrs={'class':'input-xlarge'}),
+                                                choices=GENERE_CHOICES, label = "Genero : ",  error_messages=my_default_errors )
         #------ Nombre -----------#
         nombre = forms.CharField(               required=True, widget=forms.TextInput(attrs={'class':'input-xlarge','placeholder':'Nombre'}),
                                                 label = "Nombre : ", error_messages=my_default_errors)

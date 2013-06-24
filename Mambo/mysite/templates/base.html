@@ -4,7 +4,7 @@
 	<head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <meta name="robots" content="index, follow, archive"/>
-        <title>Hispancouver - Spanish lessons Vancouver :: Spanish Courses Adults :: learn spanish Vancouver  :: Spanish academy Vancouver :: Spanish Language Vancouver</title>  
+        <title>Viaja con ...</title>  
 		<meta name="keywords" content="Spanish lessons Vancouver, Spanish Classes Vancouver, Spanish for travellers, Learn Spanish in Vancouver, Spanish courses Vancouver, spanish programs, intensive Spanish, learn to speak spanish, Spanish language lessons, Spanish language schools"/>
         <meta name="description" content="Spanish lessons in Vancouver. Native teachers school where you can improve your spanish skills. Hipancouver wants to be your spanish school in Vancouver"/>
 		<link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" media="screen">
@@ -42,7 +42,7 @@
 				  </a>
 				  <div class="nav-collapse" id="main-menu">
 					<ul class="nav" id="main-menu-left">
-					  <li class="active"><a href="#">Inicio</a></li>
+					  <li {%if path = '/inicio/' %} class="active" {% endif %}><a href="/inicio/">Inicio</a></li>
 					  <li><a href="/search/">Buscador</a></li>
 					  <li><a href="/register/">Registro</a></li>
 					  <li><a href="/contact/">Contacto</a></li>
@@ -53,18 +53,26 @@
 			</div>
 			<div class="container">
 				<div class="hero-unit">
-					<h1>Pagina Web</h1>
+					<h1>Viaja con ...</h1>
 					<div class="right">
-						<form action="/actions/" method="post" class="form-inline">
-						{% csrf_token %}
-							<label for="id_username">Usuario:</label> <input id="username" type="text" name="username" maxlength="30" class="input-small" />
-							<label for="id_password">Contraseña:</label> <input id="password" name="password" type="password" class="input-small"/>
-							<button  type="submit" value="Log in"  class="btn" > Sign in</button> 
-						</form>
+						{%if not user.is_authenticated %}
+							<form action="/actions/" method="post" class="form-inline">
+							{% csrf_token %}
+								<label for="id_username">Usuario:</label> <input id="username" type="text" name="username" maxlength="30" class="input-small" />
+								<label for="id_password">Contraseña:</label> <input id="password" name="password" type="password" class="input-small"/>
+								<button  type="submit" value="Log in"  class="btn" > Sign in</button> 
+							</form>
+						{% else %}
+							<p> Bienvenido {{ user }} !! </p>
+							<a href="/logout/">logout</a>
+						{% endif %}
 					</div>
 				</div>
 				<!--<img src="{% static 'images/header.jpg' %}" id="header-img" alt="Hispancouver Logo - Spanish lessons Vancouver" />-->
-				{% block content %}	{% endblock %}
+				
+				{% block content %}
+
+				{% endblock %}
 
 				{% block footer %}
 				<p>Thanks for visiting my site.</p>
