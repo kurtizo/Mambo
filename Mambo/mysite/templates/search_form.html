@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}		
+	<div class="well">
+		<form action="/actions/" method="post" class="form-search">
+			<input type="text" class="input-medium search-query">
+			<button type="submit" class="btn">Search</button>			
+		</form>
+	</div>
+{% endblock %}		
+<p>Dear {{ person_name }}</p>

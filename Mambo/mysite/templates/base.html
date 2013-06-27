@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+<html lang="es-ES">
+	{% load staticfiles %}
+	<head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <meta name="robots" content="index, follow, archive"/>
+        <title>Viaja con ...</title>  
+		<meta name="keywords" content="Spanish lessons Vancouver, Spanish Classes Vancouver, Spanish for travellers, Learn Spanish in Vancouver, Spanish courses Vancouver, spanish programs, intensive Spanish, learn to speak spanish, Spanish language lessons, Spanish language schools"/>
+        <meta name="description" content="Spanish lessons in Vancouver. Native teachers school where you can improve your spanish skills. Hipancouver wants to be your spanish school in Vancouver"/>
+		<link href="{% static 'css/bootstrap.css' %}" rel="stylesheet" media="screen">
+		<link href="{% static 'css/bootstrap-responsive.css' %}" rel="stylesheet">  
+  <style type="text/css">
+	  body{
+		background-color: #D1DFF8;
+      }
+	  .hero-unit {
+        margin: 20px 0;
+		background-color: #049cdb;
+        text-align: left;
+      }
+      .hero-unit h1 {
+        line-height: 1;
+      }
+      .right {
+		text-align: right;
+	  }
+
+	  .well {
+		  text-align: left;
+      }
+    </style>
+	</head>
+	<body>
+			
+			<div class="navbar navbar-static-top"> <!--Situamos arriba del todo la barra de menú -->
+			  <div class="navbar-inner">
+				<div class="container">
+				  <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				  </a>
+				  <div class="nav-collapse" id="main-menu">
+					<ul class="nav" id="main-menu-left">
+					  <li {%if path = '/inicio/' %} class="active" {% endif %}><a href="/inicio/">Inicio</a></li>
+					  <li><a href="/search/">Buscador</a></li>
+					  <li><a href="/register/">Registro</a></li>
+					  <li><a href="/contact/">Contacto</a></li>
+					</ul>
+				  </div><!--/.nav-collapse -->
+				</div>
+			  </div>
+			</div>
+			<div class="container">
+				<div class="hero-unit">
+					<h1>Viaja con ...</h1>
+					<div class="right">
+						{%if not user.is_authenticated %}
+							<form action="/actions/" method="post" class="form-inline">
+							{% csrf_token %}
+								<label for="id_username">Usuario:</label> <input id="username" type="text" name="username" maxlength="30" class="input-small" />
+								<label for="id_password">Contraseña:</label> <input id="password" name="password" type="password" class="input-small"/>
+								<button  type="submit" value="Log in"  class="btn" > Sign in</button> 
+							</form>
+						{% else %}
+							<p> Bienvenido {{ user }} !! </p>
+							<a href="/logout/">logout</a>
+						{% endif %}
+					</div>
+				</div>
+				<!--<img src="{% static 'images/header.jpg' %}" id="header-img" alt="Hispancouver Logo - Spanish lessons Vancouver" />-->
+				
+				{% block content %}
+
+				{% endblock %}
+
+				{% block footer %}
+				<p>Thanks for visiting my site.</p>
+				{% endblock %}
+			</div>
+	</body>
+	<!-- El javascript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../assets/js/jquery.js"></script>
+    <script src="../assets/js/bootstrap-transition.js"></script>
+    <script src="../assets/js/bootstrap-alert.js"></script>
+    <script src="../assets/js/bootstrap-modal.js"></script>
+    <script src="../assets/js/bootstrap-dropdown.js"></script>
+    <script src="../assets/js/bootstrap-scrollspy.js"></script>
+    <script src="../assets/js/bootstrap-tab.js"></script>
+    <script src="../assets/js/bootstrap-tooltip.js"></script>
+    <script src="../assets/js/bootstrap-popover.js"></script>
+    <script src="../assets/js/bootstrap-button.js"></script>
+    <script src="../assets/js/bootstrap-collapse.js"></script>
+    <script src="../assets/js/bootstrap-carousel.js"></script>
+    <script src="../assets/js/bootstrap-typeahead.js"></script>
+</html>
