@@ -1,0 +1,8 @@
+Lo archivos que crees nuevos no se enviarán automáticamente al servidor, tienes que añadirlos con
+	-	git add nombreArchivo
+Commit en local
+	-	git commit
+Actualizamos el repo	
+	-	git pull --rebase
+Metemos los cambios definitivamente
+	-	git push
